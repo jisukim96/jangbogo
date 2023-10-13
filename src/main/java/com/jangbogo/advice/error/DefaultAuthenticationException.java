@@ -1,8 +1,10 @@
 package com.jangbogo.advice.error;
 
-import com.jangbogo.advice.payload.ErrorCode;
-import lombok.Getter;
 import org.springframework.security.core.AuthenticationException;
+
+import com.jangbogo.advice.payload.ErrorCode;
+
+import lombok.Getter;
 
 @Getter
 public class DefaultAuthenticationException extends AuthenticationException {

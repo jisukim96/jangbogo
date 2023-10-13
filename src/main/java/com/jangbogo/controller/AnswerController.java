@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.jangbogo.domain.Board.Answer;
-import com.jangbogo.domain.Board.Board;
-import com.jangbogo.domain.Board.Question;
+import com.jangbogo.domain.board.Answer;
+import com.jangbogo.domain.board.Board;
+import com.jangbogo.domain.board.Question;
 import com.jangbogo.domain.member.entity.Member;
 import com.jangbogo.dto.AnswerDto;
 import com.jangbogo.service.AnswerService;

@@ -1,10 +1,5 @@
 package com.jangbogo.advice;
 
-import com.jangbogo.advice.error.*;
-import com.jangbogo.advice.payload.ErrorCode;
-import com.jangbogo.advice.payload.ErrorResponse;
-import com.jangbogo.payload.response.ApiResponse;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.AuthenticationException;
@@ -13,6 +8,14 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.jangbogo.advice.error.DefaultAuthenticationException;
+import com.jangbogo.advice.error.DefaultException;
+import com.jangbogo.advice.error.DefaultNullPointerException;
+import com.jangbogo.advice.error.InvalidParameterException;
+import com.jangbogo.advice.payload.ErrorCode;
+import com.jangbogo.advice.payload.ErrorResponse;
+import com.jangbogo.dto.payload.response.ApiResponse;
 
 @RestControllerAdvice(annotations = RestController.class)
 public class ApiControllerAdvice {

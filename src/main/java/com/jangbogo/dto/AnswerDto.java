@@ -3,7 +3,7 @@ package com.jangbogo.dto;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-import com.jangbogo.domain.Board.Answer;
+import com.jangbogo.domain.board.Answer;
 
 import lombok.Data;
 

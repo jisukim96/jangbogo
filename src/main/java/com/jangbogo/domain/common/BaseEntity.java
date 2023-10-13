@@ -16,7 +16,7 @@ public abstract class BaseEntity {
 
     @Column(updatable = false)
     @CreatedBy
-    private String createBy;
+    private String createdBy;
 
     @LastModifiedBy
     private String modifiedBy;

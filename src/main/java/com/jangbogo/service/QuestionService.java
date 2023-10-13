@@ -26,9 +26,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.http.ResponseEntity;
 
 import com.jangbogo.exeption.DataNotFoundException;
-import com.jangbogo.domain.Board.Answer;
-import com.jangbogo.domain.Board.Board;
-import com.jangbogo.domain.Board.Question;
+import com.jangbogo.domain.board.Answer;
+import com.jangbogo.domain.board.Board;
+import com.jangbogo.domain.board.Question;
 import com.jangbogo.domain.member.entity.Member;
 import com.jangbogo.repository.QuestionRepository;
 
@@ -49,22 +49,6 @@ public class QuestionService {
         List<Question> myboard = questionRepository.findByName(member);
         return ResponseEntity.ok(myboard);
     }
-
-	
-	// 페이징
-    public Page<Question> getList(Long board_id,String region,int page) {
-        List<Sort.Order> sorts = new ArrayList();
-        sorts.add(Sort.Order.desc("createAt"));
-
-        Pageable pageable = PageRequest.of(page, 10 , Sort.by(sorts));
-
-        if(!region.equals("undefined")){
-            return this.questionRepository.findByBoardIdAndRegion(board_id,region, pageable);
-        }else {
-            return this.questionRepository.findByBoardId(board_id, pageable);
-        }
-
-    }
 	
 	// 한개 조회
 	public Question getQuestion(Long id) {
@@ -77,6 +61,7 @@ public class QuestionService {
 		}		 
 	}
 
+	
     public Board saveBoardType(Long board_id) {
 
         Board ob = boardRepository.findById(board_id).orElse(null);
@@ -127,51 +112,8 @@ public class QuestionService {
         this.questionRepository.save(question);
     }
     
-    // 신고
-    public void report(Question question, Member name) {
-    	question.getReport().add(name);
-    	this.questionRepository.save(question);
-    }
-    
-    // 조회수
-    public void incrementReadCount(Long id) {
-        Question question = findById(id);
-        
-        question.setReadCount(question.getReadCount() + 1);
-        save(question);
-    }
-    
-    public Question findById(Long id) {
-        return questionRepository.findById(id).orElse(null);
-    }
     public Question save(Question question) {
         return questionRepository.save(question);
-    }
-
-
-    // 검색기능
-    private Specification<Question> search(final String kw) {
-    	
-        return new Specification<>() {
-        	
-            private static final long serialVersionUID = 1L;
-
-            @Override
-            public Predicate toPredicate(Root<Question> q, CriteriaQuery<?> query, CriteriaBuilder cb) {
-            	
-            	
-                query.distinct(true);  // 중복을 제거 
-                Join<Question, Member> u1 = q.join("name", JoinType.LEFT);
-                Join<Question, Answer> a = q.join("answerList", JoinType.LEFT);
-                Join<Answer, Member> u2 = a.join("name", JoinType.LEFT);
-
-                return cb.or(cb.like(q.get("subject"), "%" + kw + "%"), // 제목 
-                        cb.like(q.get("content"), "%" + kw + "%"),      // 내용 
-//                        cb.like(u1.get("username"), "%" + kw + "%"),    // 질문 작성자 
-                        cb.like(a.get("content"), "%" + kw + "%"));      // 답변 내용 
-//                        cb.like(u2.get("username"), "%" + kw + "%"))   // 답변 작성자 
-            }
-        };
     }
 	
 }

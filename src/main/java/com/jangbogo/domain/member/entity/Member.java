@@ -1,10 +1,6 @@
 package com.jangbogo.domain.member.entity;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -12,17 +8,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.jangbogo.domain.common.BaseTimeEntity;
-import com.jangbogo.domain.product.Product;
-
-import lombok.*;
-
-import org.hibernate.annotations.DynamicUpdate;
-
-import javax.persistence.*;
-
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
@@ -35,7 +20,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @DynamicUpdate //실제 값이 변경된 컬럼으로만 update 쿼리 생성
 @Entity
@@ -54,7 +38,7 @@ public class Member extends BaseTimeEntity {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @JsonIgnore
+    @JsonIgnore	//JSON 형식으로 값을 넘길 때 성능 저하 방지하기 위해 포함하지 않는다.
     private String password;
 
     private String age;

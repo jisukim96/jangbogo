@@ -8,6 +8,6 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @AuthenticationPrincipal
-public @interface CurrentUser {
+public @interface CurrentUser { //커스텀 어노테이션
 
 }

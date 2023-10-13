@@ -2,11 +2,9 @@ package com.jangbogo.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import javax.transaction.Transactional;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.webjars.NotFoundException;
 
@@ -14,11 +12,12 @@ import com.jangbogo.domain.member.entity.Member;
 import com.jangbogo.domain.product.Product;
 import com.jangbogo.domain.product.Zzim;
 import com.jangbogo.dto.ProductRequestDto;
-import com.jangbogo.repository.ZzimRepository;
 import com.jangbogo.repository.MemberRepository;
 import com.jangbogo.repository.ProductRepository;
+import com.jangbogo.repository.ZzimRepository;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
 @RequiredArgsConstructor
@@ -53,7 +52,7 @@ public class ZzimService {
 	        productRepository.save(buildProductreq(req, zzim));	
         	zzim.setCount(zzim.getCount() + 1);
         }else {
-        	product.getCreateAt().toString();
+        	product.getCreatedAt().toString();
         }
 	     
 	}

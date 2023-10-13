@@ -1,33 +1,33 @@
 package com.jangbogo.controller;
 
-import com.jangbogo.advice.payload.ErrorResponse;
+import javax.validation.Valid;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.jangbogo.config.security.token.CurrentUser;
 import com.jangbogo.config.security.token.UserPrincipal;
-import com.jangbogo.domain.member.entity.Member;
-import com.jangbogo.exeption.MemberNotFoundException;
-import com.jangbogo.payload.request.auth.*;
-import com.jangbogo.payload.response.AuthResponse;
-import com.jangbogo.payload.response.MailResponse;
-import com.jangbogo.payload.response.Message;
-
+import com.jangbogo.dto.payload.request.auth.RefreshTokenRequest;
+import com.jangbogo.dto.payload.request.auth.SignInRequest;
+import com.jangbogo.dto.payload.request.auth.SignUpRequest;
+import com.jangbogo.dto.payload.request.auth.UpdateRequest;
+import com.jangbogo.dto.payload.response.MailResponse;
 import com.jangbogo.service.MailService;
 import com.jangbogo.service.auth.AuthService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
-import javax.validation.Valid;
 
 @Slf4j
 @Tag(name = "Authorization", description = "Authorization API")

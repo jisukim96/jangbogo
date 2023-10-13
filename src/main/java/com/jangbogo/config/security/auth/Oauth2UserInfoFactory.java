@@ -1,11 +1,11 @@
 package com.jangbogo.config.security.auth;
 
-import com.jangbogo.advice.assertThat.DefaultAssert;
-import com.jangbogo.config.security.auth.company.Kakao;
-import com.jangbogo.config.security.auth.company.Naver;
-import com.jangbogo.domain.member.entity.Provider;
-
 import java.util.Map;
+
+import com.jangbogo.advice.assertThat.DefaultAssert;
+import com.jangbogo.config.security.auth.providers.Kakao;
+import com.jangbogo.config.security.auth.providers.Naver;
+import com.jangbogo.domain.member.entity.Provider;
 
 public class Oauth2UserInfoFactory {
     public static Oauth2UserInfo getOAuth2UserInfo(String registrationId, Map<String, Object> attributes) {

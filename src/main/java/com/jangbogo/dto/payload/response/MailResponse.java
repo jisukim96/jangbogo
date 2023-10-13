@@ -1,4 +1,4 @@
-package com.jangbogo.payload.response;
+package com.jangbogo.dto.payload.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

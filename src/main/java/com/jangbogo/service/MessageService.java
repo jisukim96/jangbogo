@@ -11,11 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.jangbogo.domain.DirectMessage;
 import com.jangbogo.domain.member.entity.Member;
+import com.jangbogo.dto.payload.request.message.MessageCreateRequest;
+import com.jangbogo.dto.payload.request.message.MessageDto;
 import com.jangbogo.exeption.MemberNotEqualsException;
 import com.jangbogo.exeption.MemberNotFoundException;
 import com.jangbogo.exeption.MessageNotFoundException;
-import com.jangbogo.payload.request.message.MessageCreateRequest;
-import com.jangbogo.payload.request.message.MessageDto;
 import com.jangbogo.repository.MemberRepository;
 import com.jangbogo.repository.MessageRepository;
 

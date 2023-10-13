@@ -1,4 +1,4 @@
-package com.jangbogo.payload.response.DM;
+package com.jangbogo.dto.payload.response.DM;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AccessLevel;

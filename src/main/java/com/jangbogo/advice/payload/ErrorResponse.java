@@ -1,16 +1,16 @@
 package com.jangbogo.advice.payload;
 
-import lombok.Data;
-import lombok.Builder;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.validation.FieldError;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import org.springframework.validation.FieldError;
+import lombok.Builder;
+import lombok.Data;
 
 @Data
 public class ErrorResponse {

@@ -1,10 +1,10 @@
-package com.jangbogo.payload.request.auth;
-
-import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.Data;
+package com.jangbogo.dto.payload.request.auth;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Data;
 
 @Data
 public class ChangePasswordRequest {

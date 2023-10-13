@@ -1,9 +1,9 @@
-package com.jangbogo.config.security.auth.company;
+package com.jangbogo.config.security.auth.providers;
+
+import java.util.Map;
 
 import com.jangbogo.config.security.auth.Oauth2UserInfo;
 import com.jangbogo.domain.member.entity.Provider;
-
-import java.util.Map;
 
 public class Naver extends Oauth2UserInfo {
 

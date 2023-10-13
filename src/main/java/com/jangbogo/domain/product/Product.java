@@ -13,13 +13,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jangbogo.domain.common.BaseTimeEntity;
-
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

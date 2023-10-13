@@ -34,7 +34,7 @@ public class PriceInfoController {
 	private PriceInfoService priceInfoService;
 
 
-    @Scheduled(cron = "0 0 17 * * ?")
+    @Scheduled(cron = "0 0 17 * * ?") //매일 17시 마다 정보를 받아온다
     @PostMapping("/")
     public void getPrice() throws JsonMappingException, JsonProcessingException{
 

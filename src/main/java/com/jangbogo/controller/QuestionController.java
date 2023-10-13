@@ -1,27 +1,33 @@
 package com.jangbogo.controller;
 
-import java.security.Principal;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jangbogo.config.security.token.CurrentUser;
 import com.jangbogo.config.security.token.UserPrincipal;
-import com.jangbogo.domain.Board.Question;
+import com.jangbogo.domain.board.Question;
 import com.jangbogo.domain.member.entity.Member;
 import com.jangbogo.dto.AnswerDto;
 import com.jangbogo.dto.QuestionDto;
 import com.jangbogo.repository.MemberRepository;
+import com.jangbogo.repository.QuestionRepository;
 import com.jangbogo.service.MemberService;
 import com.jangbogo.service.QuestionService;
 
@@ -35,6 +41,7 @@ public class QuestionController {
 	private final QuestionService questionService; 
 	private final MemberService memberService;
 	private final MemberRepository memberRepository;
+	private final QuestionRepository questionRepository;
 
 	//내가쓴글 조회
 	@GetMapping("/board/my")
@@ -143,7 +150,7 @@ public class QuestionController {
 	// 조회수
 	@PostMapping("/board/increment-read-count/{id}")
 	public ResponseEntity<Question> incrementReadCount(@PathVariable Long id) {
-		Question question = questionService.findById(id);
+		Question question = questionRepository.findById(id);
 	    question.setReadCount(question.getReadCount() + 1);
 	    Question updatedQuestion = questionService.save(question);
 	    System.out.println("조회수~~~~~~~~~~~~~~~~");

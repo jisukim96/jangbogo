@@ -1,4 +1,4 @@
-package com.jangbogo.payload.request.message;
+package com.jangbogo.dto.payload.request.message;
 
 import com.jangbogo.domain.DirectMessage;
 

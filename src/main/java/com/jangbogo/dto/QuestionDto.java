@@ -6,7 +6,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-import com.jangbogo.domain.Board.Board;
+import com.jangbogo.domain.board.Board;
 
 import lombok.Data;
 

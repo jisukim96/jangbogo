@@ -1,4 +1,4 @@
-package com.jangbogo.payload.request.message;
+package com.jangbogo.dto.payload.request.message;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

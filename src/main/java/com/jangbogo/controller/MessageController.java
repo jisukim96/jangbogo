@@ -1,5 +1,7 @@
 package com.jangbogo.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -10,22 +12,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jangbogo.config.security.token.CurrentUser;
 import com.jangbogo.config.security.token.UserPrincipal;
 import com.jangbogo.domain.member.entity.Member;
+import com.jangbogo.dto.payload.request.message.MessageCreateRequest;
+import com.jangbogo.dto.payload.response.DM.Response;
 import com.jangbogo.exeption.MemberNotEqualsException;
-import com.jangbogo.payload.request.message.MessageCreateRequest;
-import com.jangbogo.payload.response.DM.Response;
 import com.jangbogo.repository.MemberRepository;
 import com.jangbogo.service.MessageService;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-
-import java.util.List;
 
 @Tag(name = "Messages Controller", description = "Messages")
 @RequiredArgsConstructor

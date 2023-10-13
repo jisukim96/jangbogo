@@ -59,7 +59,7 @@ public class DirectMessage extends BaseTimeEntity {
         this.receiver = receiver;
         this.deletedBySender = false;
         this.deletedByReceiver = false;
-        this.setCreateAt(createAt);
+        this.setCreatedAt(createAt);
     }
 
 	// 편지 삭제와 관련된 메소드 

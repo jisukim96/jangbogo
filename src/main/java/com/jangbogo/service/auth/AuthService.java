@@ -1,26 +1,9 @@
 package com.jangbogo.service.auth;
 
-import com.jangbogo.advice.assertThat.DefaultAssert;
-import com.jangbogo.config.security.token.UserPrincipal;
-import com.jangbogo.domain.member.entity.Member;
-import com.jangbogo.domain.member.entity.Provider;
-import com.jangbogo.domain.member.entity.Role;
-import com.jangbogo.domain.member.entity.Token;
-import com.jangbogo.domain.member.mapping.TokenMapping;
-import com.jangbogo.payload.request.auth.*;
-import com.jangbogo.payload.response.ApiResponse;
-import com.jangbogo.payload.response.AuthResponse;
-import com.jangbogo.payload.response.MailResponse;
-import com.jangbogo.payload.response.Message;
-import com.jangbogo.repository.auth.TokenRepository;
-import com.jangbogo.repository.MemberRepository;
-
-import com.jangbogo.service.FileService;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import java.net.URI;
+import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -30,8 +13,27 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
-import java.util.Optional;
+import com.jangbogo.advice.assertThat.DefaultAssert;
+import com.jangbogo.config.security.token.UserPrincipal;
+import com.jangbogo.domain.member.entity.Member;
+import com.jangbogo.domain.member.entity.Provider;
+import com.jangbogo.domain.member.entity.Role;
+import com.jangbogo.domain.member.entity.Token;
+import com.jangbogo.domain.member.mapping.TokenMapping;
+import com.jangbogo.dto.payload.request.auth.RefreshTokenRequest;
+import com.jangbogo.dto.payload.request.auth.SignInRequest;
+import com.jangbogo.dto.payload.request.auth.SignUpRequest;
+import com.jangbogo.dto.payload.request.auth.UpdateRequest;
+import com.jangbogo.dto.payload.response.ApiResponse;
+import com.jangbogo.dto.payload.response.AuthResponse;
+import com.jangbogo.dto.payload.response.MailResponse;
+import com.jangbogo.dto.payload.response.Message;
+import com.jangbogo.repository.MemberRepository;
+import com.jangbogo.repository.auth.TokenRepository;
+import com.jangbogo.service.FileService;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RequiredArgsConstructor

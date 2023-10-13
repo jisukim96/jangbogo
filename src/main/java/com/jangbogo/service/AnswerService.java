@@ -15,8 +15,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.jangbogo.exeption.DataNotFoundException;
-import com.jangbogo.domain.Board.Answer;
-import com.jangbogo.domain.Board.Question;
+import com.jangbogo.domain.board.Answer;
+import com.jangbogo.domain.board.Question;
 import com.jangbogo.domain.member.entity.Member;
 import com.jangbogo.repository.AnswerRepository;
 
@@ -43,7 +43,7 @@ public class AnswerService {
 		Answer answer = new Answer(); 
 		answer.setQuestion(question);
 		answer.setContent(content);
-		answer.setCreateAt(LocalDateTime.now());
+		answer.setCreatedAt(LocalDateTime.now());
 		answer.setName(name);
 		answer.setDepth(0);
 //		answer.setParentId(null);
@@ -64,7 +64,7 @@ public class AnswerService {
 		childReply.setQuestion(question);
 		childReply.setContent(content);
 		childReply.setName(name);
-		childReply.setCreateAt(LocalDateTime.now());
+		childReply.setCreatedAt(LocalDateTime.now());
 		childReply.setDepth(parentReply.getDepth() + 1);
 //		childReply.setParentId(parentReply);
 		

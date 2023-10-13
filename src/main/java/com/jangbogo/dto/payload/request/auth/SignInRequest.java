@@ -1,4 +1,4 @@
-package com.jangbogo.payload.request.auth;
+package com.jangbogo.dto.payload.request.auth;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;

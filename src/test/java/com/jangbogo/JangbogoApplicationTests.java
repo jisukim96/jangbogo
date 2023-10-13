@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.jangbogo.domain.Board.Answer;
-import com.jangbogo.domain.Board.Board;
-import com.jangbogo.domain.Board.Question;
+import com.jangbogo.domain.board.Answer;
+import com.jangbogo.domain.board.Board;
+import com.jangbogo.domain.board.Question;
 import com.jangbogo.domain.member.entity.Member;
 import com.jangbogo.repository.AnswerRepository;
 import com.jangbogo.repository.BoardRepository;

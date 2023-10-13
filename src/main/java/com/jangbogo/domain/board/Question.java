@@ -1,4 +1,4 @@
-package com.jangbogo.domain.Board;
+package com.jangbogo.domain.board;
 
 import java.util.HashSet;
 import java.util.List;
